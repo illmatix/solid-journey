@@ -42,3 +42,13 @@ CREATE TABLE `food_nutrients` (
   FOREIGN KEY (`nutrient_id`) REFERENCES `nutrients` (`id`) ON DELETE CASCADE,
   FOREIGN KEY (`food_id`) REFERENCES `foods` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `most_consumed_nutrients` (
+    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+    `name` varchar(255) NOT NULL,
+    `unit_name` varchar(11) unsigned NOT NULL,
+    `weekly_amount` int(11) unsigned NOT NULL,
+    `user_id` int(11) unsigned NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
